@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wls:weblogic-ejb-jar xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd http://xmlns.oracle.com/weblogic/weblogic-ejb-jar http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.7/weblogic-ejb-jar.xsd">
-    <!--weblogic-version:12.2.1.3-->
-</wls:weblogic-ejb-jar>
+<weblogic-ejb-jar
+	xmlns:wls="http://xmlns.oracle.com/weblogic/weblogic-ejb-jar"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd http://xmlns.oracle.com/weblogic/weblogic-ejb-jar http://xmlns.oracle.com/weblogic/weblogic-ejb-jar/1.7/weblogic-ejb-jar.xsd">
+	<weblogic-enterprise-bean>
+		<ejb-name>TestMDB</ejb-name>
+		<message-driven-descriptor>
+			<destination-jndi-name>
+				jms/WLReceiverQueue
+			</destination-jndi-name>
+			<connection-factory-jndi-name>
+				jms/WLReceiverQCF
+			</connection-factory-jndi-name>
+		</message-driven-descriptor>
+	</weblogic-enterprise-bean>
+</weblogic-ejb-jar>

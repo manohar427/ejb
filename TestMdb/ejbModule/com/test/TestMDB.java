@@ -1,7 +1,5 @@
 package com.test;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -31,7 +29,6 @@ public class TestMDB implements MessageListener {
 			}
 		}
 
-// Place the message on to the reply queue (WLReplyQueue)
 		putMessage(msg);
 		System.out.println("=========================================");
 	}
@@ -55,7 +52,6 @@ public class TestMDB implements MessageListener {
 			System.out.println("=> Message sent!");
 
 		} catch (Exception e) {
-			System.out.println("Exception: ");
 			e.printStackTrace();
 
 			if (e instanceof JMSException) {
@@ -65,11 +61,9 @@ public class TestMDB implements MessageListener {
 		} finally {
 
 			try {
-				System.out.println("=> Closing Connection");
 				queueSession.close();
 				queueConnection.close();
 			} catch (Exception e) {
-				System.out.println("Exception: ");
 				e.printStackTrace();
 
 				if (e instanceof JMSException) {
@@ -79,13 +73,4 @@ public class TestMDB implements MessageListener {
 		}
 	}
 
-	@PostConstruct
-	public void postCreate() {
-		System.out.println("Bean Created");
-	}
-
-	@PreDestroy
-	public void preDestroy() {
-		System.out.println("Bean Destroyed");
-	}
 }
