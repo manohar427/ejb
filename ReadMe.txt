@@ -1,0 +1,1 @@
+http://ibswings.blogspot.com/2008/02/integrating-mq-broker-6-with-bea.html
